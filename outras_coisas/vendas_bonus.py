@@ -11,7 +11,7 @@ vendas = float(input("Qual o valor total das vendas do mês?"))
 
 if vendas <= 10000:
     bonus = vendas * (5/100)
-elif vendas >= 10001 and vendas <= 50000:
+elif vendas <= 50000:
     bonus = vendas * (7.5/100)
 else:
     bonus = vendas * (10/100)
