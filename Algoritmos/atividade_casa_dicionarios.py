@@ -35,7 +35,7 @@ def registrar_aluno():
 
     nome = solicitar_campo("Digite o nome do aluno: ")
     idade = solicitar_campo("Digite a idade do aluno: ")
-    matricula = gerar_codigo("A")
+    matricula = gerar_codigo()
 
     turmas[cod_turma]["alunos"][matricula] = {
         "nome": nome,
@@ -76,14 +76,14 @@ def emitir_relatorio():
         return
 
     for cod_turma, turma in turmas.items():
-        print(f"Turma {cod_turma} - {turma['nivel']} ({turma['modulo']})")
+        print(f"Turma {cod_turma} - {turma['nivel']} Módulo:({turma['modulo']})")
         alunos = turma["alunos"]
 
         if not alunos:
-            print("  Nenhum aluno cadastrado.")
+            print("Nenhum aluno cadastrado.")
         else:
             for matricula, aluno in alunos.items():
-                print(f"  Matrícula {matricula}: {aluno['nome']}, {aluno['idade']} anos")
+                print(f"-Matrícula {matricula}: {aluno['nome']}, {aluno['idade']} anos")
         print()
 
 while True:
@@ -92,10 +92,10 @@ while True:
 2 - Registrar dados do aluno
 3 - Editar dados
 4 - Emitir relatório
-5 -  Sair
+5 - Sair
 ''')
     opcao = int(input("Digite a opção desejada: "))
-    
+
     if opcao == 1:
             registrar_turma()
     elif opcao == 2:
@@ -109,6 +109,3 @@ while True:
             break
     else:
         print("Opção inválida. Tente novamente.\n")
-    
-
-
